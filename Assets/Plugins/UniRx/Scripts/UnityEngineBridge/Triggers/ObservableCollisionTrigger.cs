@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace UniRx.Triggers
 {
-    [DisallowMultipleComponent]
+#if PHYSICS_MODULE
+	[DisallowMultipleComponent]
     public class ObservableCollisionTrigger : ObservableTriggerBase
     {
         Subject<Collision> onCollisionEnter;
@@ -64,4 +65,5 @@ namespace UniRx.Triggers
             }
         }
     }
+#endif
 }

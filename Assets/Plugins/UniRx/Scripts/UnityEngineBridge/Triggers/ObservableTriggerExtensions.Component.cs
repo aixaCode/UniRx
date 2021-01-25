@@ -55,7 +55,7 @@ namespace UniRx.Triggers
         #endregion
 
         #region ObservableCollisionTrigger
-
+#if PHYSICS_MODULE
         /// <summary>OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider.</summary>
         public static IObservable<Collision> OnCollisionEnterAsObservable(this Component component)
         {
@@ -77,7 +77,7 @@ namespace UniRx.Triggers
             if (component == null || component.gameObject == null) return Observable.Empty<Collision>();
             return GetOrAddComponent<ObservableCollisionTrigger>(component.gameObject).OnCollisionStayAsObservable();
         }
-
+#endif
         #endregion
 
         #region ObservableDestroyTrigger
@@ -216,7 +216,7 @@ namespace UniRx.Triggers
         #endregion
 
         #region ObservableTriggerTrigger
-
+#if PHYSICS_MODULE
         /// <summary>OnTriggerEnter is called when the Collider other enters the trigger.</summary>
         public static IObservable<Collider> OnTriggerEnterAsObservable(this Component component)
         {
@@ -238,7 +238,7 @@ namespace UniRx.Triggers
             if (component == null || component.gameObject == null) return Observable.Empty<Collider>();
             return GetOrAddComponent<ObservableTriggerTrigger>(component.gameObject).OnTriggerStayAsObservable();
         }
-
+#endif
         #endregion
 
         #region ObservableUpdateTrigger

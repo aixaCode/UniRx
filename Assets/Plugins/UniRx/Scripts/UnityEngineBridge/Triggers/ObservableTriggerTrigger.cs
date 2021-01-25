@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace UniRx.Triggers
 {
+#if PHYSICS_MODULE
     [DisallowMultipleComponent]
     public class ObservableTriggerTrigger : ObservableTriggerBase
     {
@@ -64,4 +65,5 @@ namespace UniRx.Triggers
             }
         }
     }
+#endif
 }
