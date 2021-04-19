@@ -10,6 +10,7 @@ namespace UniRx.Triggers
     // for Component
     public static partial class ObservableTriggerExtensions
     {
+#if !UNITY_2019_1_OR_NEWER || UNIRX_ANIMATION_SUPPORT
         #region ObservableAnimatorTrigger
 
         /// <summary>Callback for setting up animation IK (inverse kinematics).</summary>
@@ -27,7 +28,9 @@ namespace UniRx.Triggers
         }
 
         #endregion
-
+#endif
+        
+#if !UNITY_2019_1_OR_NEWER || UNIRX_PHYSICS2D_SUPPORT
         #region ObservableCollision2DTrigger
 
         /// <summary>Sent when an incoming collider makes contact with this object's collider (2D physics only).</summary>
@@ -53,7 +56,9 @@ namespace UniRx.Triggers
         }
 
         #endregion
-
+#endif
+        
+#if !UNITY_2019_1_OR_NEWER || UNIRX_PHYSICS_SUPPORT
         #region ObservableCollisionTrigger
 
         /// <summary>OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider.</summary>
@@ -79,7 +84,7 @@ namespace UniRx.Triggers
         }
 
         #endregion
-
+#endif
         #region ObservableDestroyTrigger
 
         /// <summary>This function is called when the MonoBehaviour will be destroyed.</summary>
@@ -189,6 +194,7 @@ namespace UniRx.Triggers
 
 #endif
 
+#if !UNITY_2019_1_OR_NEWER || UNIRX_PHYSICS2D_SUPPORT
         #region ObservableTrigger2DTrigger
 
         /// <summary>Sent when another object enters a trigger collider attached to this object (2D physics only).</summary>
@@ -214,7 +220,9 @@ namespace UniRx.Triggers
         }
 
         #endregion
-
+#endif
+       
+#if !UNITY_2019_1_OR_NEWER || UNIRX_PHYSICS2D_SUPPORT
         #region ObservableTriggerTrigger
 
         /// <summary>OnTriggerEnter is called when the Collider other enters the trigger.</summary>
@@ -240,7 +248,8 @@ namespace UniRx.Triggers
         }
 
         #endregion
-
+#endif
+        
         #region ObservableUpdateTrigger
 
         /// <summary>Update is called every frame, if the MonoBehaviour is enabled.</summary>
@@ -270,7 +279,7 @@ namespace UniRx.Triggers
 
         #endregion
 
-#if !(UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5)
+#if !(UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5) && (!UNITY_2019_1_OR_NEWER || UNIRX_UGUI_SUPPORT)
 
         #region ObservableTransformChangedTrigger
 
@@ -327,7 +336,7 @@ namespace UniRx.Triggers
         #endregion
 
         // uGUI
-
+#if !(UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5) && (!UNITY_2019_1_OR_NEWER || UNIRX_UGUI_SUPPORT)
         #region ObservableEventTrigger classes
 
         public static IObservable<BaseEventData> OnDeselectAsObservable(this UIBehaviour component)
@@ -433,6 +442,7 @@ namespace UniRx.Triggers
         }
 
         #endregion
+#endif
 
 #endif
 
