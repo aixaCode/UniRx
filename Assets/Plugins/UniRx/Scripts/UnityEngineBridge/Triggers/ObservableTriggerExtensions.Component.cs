@@ -222,7 +222,7 @@ namespace UniRx.Triggers
         #endregion
 #endif
        
-#if !UNITY_2019_1_OR_NEWER || UNIRX_PHYSICS2D_SUPPORT
+#if !UNITY_2019_1_OR_NEWER || UNIRX_PHYSICS_SUPPORT
         #region ObservableTriggerTrigger
 
         /// <summary>OnTriggerEnter is called when the Collider other enters the trigger.</summary>
